@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: python
+spec:
+  containers:
+  - name: main
+    image: test-config
+    imagePullPolicy: Never
+    command: ["sleep", "99999"]
