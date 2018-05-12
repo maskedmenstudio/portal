@@ -7,4 +7,3 @@ spec:
   - name: main
     image: grpc
     imagePullPolicy: Never
-    command: ["sleep", "99999"]

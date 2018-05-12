@@ -10,12 +10,11 @@ RUN apk add --update --no-cache \
 		dumb-init \
 		bash \
 		sudo \
-		python \
+                python3 \
                 alpine-sdk \
-	&& apk add --no-cache \
-		python-dev \
+		python3-dev \
 		py-pip \
-	&& pip install --no-cache-dir -U \
+	&& pip3.6 install --no-cache-dir -U \
 		passlib \
                 grpcio-tools \
 		kubernetes==${KUBE_CLIENT_VERSION} \

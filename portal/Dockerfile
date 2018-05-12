@@ -1,8 +1,10 @@
 FROM papagalu/kube-python-client
 
-ADD test-config.py /test-config.py
-ADD portal_api /portal_api
-ADD server.py /server.py
-ADD calculator.py /calculator.py
+RUN mkdir /portal
 
-CMD ["/bin/bash"]
+ADD portal_api /portal/portal_api
+ADD server /portal/server
+ADD main.py /portal/main.py
+ADD __init__.py /portal/__init__.py
+
+ENTRYPOINT ["python", "portal/main.py"]
