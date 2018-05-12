@@ -19,23 +19,30 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='portal_api/portal_api.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x1bportal_api/portal_api.proto\"\x17\n\x06Number\x12\r\n\x05value\x18\x01 \x01(\x02\x32.\n\nCalculator\x12 \n\nSquareRoot\x12\x07.Number\x1a\x07.Number\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x1bportal_api/portal_api.proto\"%\n\x06Status\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x0c\n\x04port\x18\x02 \x01(\x05\"\x16\n\x06Player\x12\x0c\n\x04name\x18\x01 \x01(\t2)\n\x04Play\x12!\n\x0b\x45nrolPlayer\x12\x07.Player\x1a\x07.Status\"\x00\x62\x06proto3')
 )
 
 
 
 
-_NUMBER = _descriptor.Descriptor(
-  name='Number',
-  full_name='Number',
+_STATUS = _descriptor.Descriptor(
+  name='Status',
+  full_name='Status',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='Number.value', index=0,
+      name='value', full_name='Status.value', index=0,
       number=1, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='port', full_name='Status.port', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -52,42 +59,81 @@ _NUMBER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=31,
-  serialized_end=54,
+  serialized_end=68,
 )
 
-DESCRIPTOR.message_types_by_name['Number'] = _NUMBER
+
+_PLAYER = _descriptor.Descriptor(
+  name='Player',
+  full_name='Player',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='Player.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=70,
+  serialized_end=92,
+)
+
+DESCRIPTOR.message_types_by_name['Status'] = _STATUS
+DESCRIPTOR.message_types_by_name['Player'] = _PLAYER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-Number = _reflection.GeneratedProtocolMessageType('Number', (_message.Message,), dict(
-  DESCRIPTOR = _NUMBER,
+Status = _reflection.GeneratedProtocolMessageType('Status', (_message.Message,), dict(
+  DESCRIPTOR = _STATUS,
   __module__ = 'portal_api.portal_api_pb2'
-  # @@protoc_insertion_point(class_scope:Number)
+  # @@protoc_insertion_point(class_scope:Status)
   ))
-_sym_db.RegisterMessage(Number)
+_sym_db.RegisterMessage(Status)
+
+Player = _reflection.GeneratedProtocolMessageType('Player', (_message.Message,), dict(
+  DESCRIPTOR = _PLAYER,
+  __module__ = 'portal_api.portal_api_pb2'
+  # @@protoc_insertion_point(class_scope:Player)
+  ))
+_sym_db.RegisterMessage(Player)
 
 
 
-_CALCULATOR = _descriptor.ServiceDescriptor(
-  name='Calculator',
-  full_name='Calculator',
+_PLAY = _descriptor.ServiceDescriptor(
+  name='Play',
+  full_name='Play',
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=56,
-  serialized_end=102,
+  serialized_start=94,
+  serialized_end=135,
   methods=[
   _descriptor.MethodDescriptor(
-    name='SquareRoot',
-    full_name='Calculator.SquareRoot',
+    name='EnrolPlayer',
+    full_name='Play.EnrolPlayer',
     index=0,
     containing_service=None,
-    input_type=_NUMBER,
-    output_type=_NUMBER,
+    input_type=_PLAYER,
+    output_type=_STATUS,
     options=None,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_CALCULATOR)
+_sym_db.RegisterServiceDescriptor(_PLAY)
 
-DESCRIPTOR.services_by_name['Calculator'] = _CALCULATOR
+DESCRIPTOR.services_by_name['Play'] = _PLAY
 
 # @@protoc_insertion_point(module_scope)

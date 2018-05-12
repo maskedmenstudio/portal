@@ -4,7 +4,7 @@ import grpc
 from portal_api import portal_api_pb2 as portal__api_dot_portal__api__pb2
 
 
-class CalculatorStub(object):
+class PlayStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -14,18 +14,18 @@ class CalculatorStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.SquareRoot = channel.unary_unary(
-        '/Calculator/SquareRoot',
-        request_serializer=portal__api_dot_portal__api__pb2.Number.SerializeToString,
-        response_deserializer=portal__api_dot_portal__api__pb2.Number.FromString,
+    self.EnrolPlayer = channel.unary_unary(
+        '/Play/EnrolPlayer',
+        request_serializer=portal__api_dot_portal__api__pb2.Player.SerializeToString,
+        response_deserializer=portal__api_dot_portal__api__pb2.Status.FromString,
         )
 
 
-class CalculatorServicer(object):
+class PlayServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def SquareRoot(self, request, context):
+  def EnrolPlayer(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -33,14 +33,14 @@ class CalculatorServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_CalculatorServicer_to_server(servicer, server):
+def add_PlayServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'SquareRoot': grpc.unary_unary_rpc_method_handler(
-          servicer.SquareRoot,
-          request_deserializer=portal__api_dot_portal__api__pb2.Number.FromString,
-          response_serializer=portal__api_dot_portal__api__pb2.Number.SerializeToString,
+      'EnrolPlayer': grpc.unary_unary_rpc_method_handler(
+          servicer.EnrolPlayer,
+          request_deserializer=portal__api_dot_portal__api__pb2.Player.FromString,
+          response_serializer=portal__api_dot_portal__api__pb2.Status.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'Calculator', rpc_method_handlers)
+      'Play', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

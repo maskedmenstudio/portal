@@ -5,10 +5,12 @@ import calculator
 from concurrent import futures
 from portal_api import portal_api_pb2
 from portal_api import portal_api_pb2_grpc
+#from server.server import  *
 
-class CalculatorServicer(portal_api_pb2_grpc.CalculatorServicer):
+class PlayerServicer(portal_api_pb2_grpc.PlayServicer):
 
-    def SquareRoot(self, request, context):
-        response = portal_api_pb2.Number()
-        response.value = calculator.square_root(request.value)
+    def EnrolPlayer(self, request, context):
+        response = portal_api_pb2.Status()
+        response.value = 200
+        response.port = 9999
         return response

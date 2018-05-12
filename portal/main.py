@@ -10,8 +10,8 @@ from server import calculator
 from server.server import *
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-portal_api_pb2_grpc.add_CalculatorServicer_to_server(
-        CalculatorServicer(), server)
+portal_api_pb2_grpc.add_PlayServicer_to_server(
+        PlayerServicer(), server)
 
 print('Starting server. Listening on port 50051.')
 server.add_insecure_port('[::]:50051')

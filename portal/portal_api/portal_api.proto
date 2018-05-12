@@ -1,9 +1,14 @@
 syntax = "proto3";
 
-message Number {
+message Status {
     float value = 1;
+    int32 port  = 2;
 }
 
-service Calculator {
-    rpc SquareRoot(Number) returns (Number) {}
+message Player {
+    string name = 1;
+}
+
+service Play {
+    rpc EnrolPlayer(Player) returns (Status) {}
 }

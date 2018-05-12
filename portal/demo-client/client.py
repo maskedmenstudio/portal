@@ -8,13 +8,13 @@ import portal_api.portal_api_pb2_grpc as portal_api_pb2_grpc
 channel = grpc.insecure_channel('localhost:50051')
 
 # create a stub (client)
-stub = portal_api_pb2_grpc.CalculatorStub(channel)
+stub = portal_api_pb2_grpc.PlayStub(channel)
 
 # create a valid request message
-number = portal_api_pb2.Number(value=16)
+name = portal_api_pb2.Player(name="Lee")
 
 # make the call
-response = stub.SquareRoot(number)
+response = stub.EnrolPlayer(name)
 
 # et voilà
-print(response.value)
+print(response)
