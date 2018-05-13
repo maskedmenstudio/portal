@@ -26,7 +26,7 @@ def game(player):
               return "You win! "+player+" cut "+computer
  
 def Main():
-    host = "127.0.0.1"
+    host = "localhost"
     port = 5001
      
     mySocket = socket.socket()

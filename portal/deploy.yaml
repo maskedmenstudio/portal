@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: python
+  name: game
 spec:
   containers:
   - name: main
-    image: grpc
+    image: game
     imagePullPolicy: Never
